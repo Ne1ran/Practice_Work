@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <TabPane prefHeight="530.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Сведения об абитуриентах">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="370.0" prefWidth="739.0">
+                           <children>
+                              <TableView fx:id="normalDataTable" layoutY="14.0" prefHeight="409.0" prefWidth="900.0" />
+                              <Button fx:id="changeDataBtn" layoutX="14.0" layoutY="427.0" mnemonicParsing="false" text="Изменить">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="addDataBtn" layoutX="14.0" layoutY="469.0" mnemonicParsing="false" text="Добавить">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="dataFIO" layoutX="169.0" layoutY="428.0" promptText="ФИО абитуриента">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="dataBirthday" layoutX="365.0" layoutY="428.0" promptText="Дата рождения">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="dataPhone" layoutX="559.0" layoutY="428.0" promptText="Номер телефона">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="dataAddress" layoutX="332.0" layoutY="470.0" prefHeight="30.0" prefWidth="239.0" promptText="Адрес проживания">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Личные данные">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="privateDataTable" layoutY="14.0" prefHeight="409.0" prefWidth="900.0" />
+                              <Button fx:id="changePrivateDataBtn" layoutX="14.0" layoutY="427.0" mnemonicParsing="false" text="Изменить">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="addPrivateDataBtn" layoutX="14.0" layoutY="469.0" mnemonicParsing="false" text="Добавить">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="pdataBirthInfo" layoutX="466.0" layoutY="469.0" prefHeight="30.0" prefWidth="274.0" promptText="Свидетельство о рождении">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="pdataBirthday" layoutX="380.0" layoutY="428.0" promptText="Дата рождения">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="pdataBirthPlace" layoutX="566.0" layoutY="428.0" promptText="Место рождения">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="pdataPassport" layoutX="189.0" layoutY="469.0" prefHeight="30.0" prefWidth="262.0" promptText="Паспортные данные">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="pdataFIO" layoutX="189.0" layoutY="428.0" promptText="ФИО абитуриента">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Сведения об образовании">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="educationTable" layoutY="14.0" prefHeight="409.0" prefWidth="900.0" />
+                              <Button fx:id="changeEducationBtn" layoutX="14.0" layoutY="427.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" text="Изменить">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="addEducationBtn" layoutX="14.0" layoutY="469.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="102.0" text="Добавить">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="eduAttestateNum" layoutX="364.0" layoutY="428.0" promptText="Номер аттестата">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="eduLevel" layoutX="176.0" layoutY="428.0" promptText="Прошлое образование">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="eduAttestateScore" layoutX="552.0" layoutY="428.0" promptText="Средний балл">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="eduAttestateSpeciality" layoutX="331.0" layoutY="470.0" prefHeight="30.0" prefWidth="239.0" promptText="Информация о специальности">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Родители">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="parentsTable" layoutY="14.0" prefHeight="409.0" prefWidth="900.0" />
+                              <Button fx:id="changeParentsDataBtn" layoutX="14.0" layoutY="427.0" mnemonicParsing="false" text="Изменить">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="addParentsDataBtn" layoutX="14.0" layoutY="469.0" mnemonicParsing="false" text="Добавить">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="familyFatherAddress" layoutX="415.0" layoutY="470.0" prefHeight="30.0" prefWidth="162.0" promptText="Адрес отца">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="familyMotherAddress" layoutX="404.0" layoutY="428.0" prefHeight="30.0" prefWidth="152.0" promptText="Адрес матери">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="familyFatherFIO" layoutX="261.0" layoutY="470.0" prefHeight="30.0" prefWidth="140.0" promptText="ФИО отца">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="familyMotherFIO" layoutX="212.0" layoutY="428.0" prefHeight="30.0" prefWidth="179.0" promptText="ФИО матери">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="familyChildren" layoutX="137.0" layoutY="470.0" prefHeight="30.0" prefWidth="112.0" promptText="Детей в семье">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="familyMotherNumber" layoutX="568.0" layoutY="428.0" prefHeight="30.0" prefWidth="130.0" promptText="Номер матери">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="familyFatherWorkplace" layoutX="727.0" layoutY="470.0" prefHeight="30.0" prefWidth="158.0" promptText="Рабочее место отца">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="familyMotherWorkplace" layoutX="713.0" layoutY="428.0" promptText="Рабочее место матери">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="familyFatherNumber" layoutX="589.0" layoutY="470.0" prefHeight="30.0" prefWidth="124.0" promptText="Номер отца">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="parentsFamilyStatus" layoutX="137.0" layoutY="428.0" prefHeight="30.0" prefWidth="62.0" promptText="Семья">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <Button fx:id="createReport" layoutX="380.0" layoutY="542.0" mnemonicParsing="false" text="Создать отчет">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelInfo" layoutX="14.0" layoutY="542.0" prefHeight="32.0" prefWidth="319.0" textFill="RED">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
