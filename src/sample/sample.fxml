@@ -24,7 +24,7 @@
          <children>
             <TabPane prefHeight="530.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Сведения об абитуриентах">
+                <Tab fx:id="dataPane" text="Сведения об абитуриентах">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="370.0" prefWidth="739.0">
                            <children>
@@ -63,7 +63,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Личные данные">
+                <Tab fx:id="pdataPane" text="Личные данные">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -107,7 +107,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="Сведения об образовании">
+                  <Tab fx:id="eduDataPane" text="Сведения об образовании">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -146,7 +146,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Родители">
+                  <Tab fx:id="parentsDataPane" text="Родители">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>

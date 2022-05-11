@@ -43,6 +43,14 @@ public class DBHandler extends Config {
         rset = prst.executeQuery();
         return rset;
     }
+    public ResultSet getEduDataWhere(String id) throws SQLException, ClassNotFoundException {
+        ResultSet rset = null;
+        String select = "SELECT * FROM " + AllConstants.EducationConsts.EDUCATION_TABLE + " where "
+                + AllConstants.EducationConsts.ID+ " = " + id;
+        PreparedStatement prst = getConnection().prepareStatement(select);
+        rset = prst.executeQuery();
+        return rset;
+    }
 
     public void addNewData(StudentData data) throws SQLException, ClassNotFoundException {
         String insert = "INSERT INTO " + AllConstants.DataConsts.DATA_TABLE + "(" + AllConstants.DataConsts.FIO + ',' +
@@ -111,6 +119,49 @@ public class DBHandler extends Config {
                 AllConstants.DataConsts.ADDRESS + "='" + data.getAddress() + "', " +
                 AllConstants.DataConsts.NUMBER + "='" + data.getPhone() + "' WHERE (" + AllConstants.DataConsts.ID
                 + "=" + id + ")";
+        System.out.println(update);
+        PreparedStatement prst = getConnection().prepareStatement(update);
+        prst.executeUpdate();
+    }
+
+    public void changePrivateData(String id, StudentPrivateData data) throws SQLException, ClassNotFoundException {
+        String update = "UPDATE " + AllConstants.PrivateDataConsts.PRIVATE_DATA_TABLE + " SET " +
+                AllConstants.PrivateDataConsts.FIO + "='" + data.getFio() + "', " +
+                AllConstants.PrivateDataConsts.BIRTHDAY + "='" + data.getBirthday() + "', " +
+                AllConstants.PrivateDataConsts.BIRTH_PLACE + "='" + data.getBirthPlace() + "', " +
+                AllConstants.PrivateDataConsts.PASSPORT + "='" + data.getPassportData() + "', " +
+                AllConstants.PrivateDataConsts.BIRTH_INFO + "='" + data.getBirthInfo() + "' WHERE ("
+                + AllConstants.PrivateDataConsts.ID + "=" + id + ")";
+        System.out.println(update);
+        PreparedStatement prst = getConnection().prepareStatement(update);
+        prst.executeUpdate();
+    }
+
+    public void changeEduData(String id, Education data) throws SQLException, ClassNotFoundException {
+        String update = "UPDATE " + AllConstants.EducationConsts.EDUCATION_TABLE + " SET " +
+                AllConstants.EducationConsts.EDU_LEVEL + "='" + data.getLevel() + "', " +
+                AllConstants.EducationConsts.ATTESTATE_NUMBER + "='" + data.getAttestateNumber() + "', " +
+                AllConstants.EducationConsts.ATTESTATE_SCORE + "='" + data.getAttestateScore() + "', " +
+                AllConstants.EducationConsts.SPECIALITY_INFO + "='" + data.getSpecialityInfo() + "' WHERE ("
+                + AllConstants.EducationConsts.ID + "=" + id + ")";
+        System.out.println(update);
+        PreparedStatement prst = getConnection().prepareStatement(update);
+        prst.executeUpdate();
+    }
+
+    public void changeParentsInfo(String id, Parents data) throws SQLException, ClassNotFoundException {
+        String update = "UPDATE " + AllConstants.ParentsConsts.PARENTS_TABLE + " SET "
+                + AllConstants.ParentsConsts.FAMILY_STATUS + "='" +
+                data.getFamilyStatus() + "', " + AllConstants.ParentsConsts.CHILDREN + "='" + data.getChildren() + "', " +
+                AllConstants.ParentsConsts.MOTHER_FIO + "='" + data.getMotherFio() + "', " +
+                AllConstants.ParentsConsts.MOTHER_ADDRESS + "='" + data.getMotherAddress() + "', " +
+                AllConstants.ParentsConsts.MOTHER_NUMBER + "='" + data.getMotherNumber() + "', " +
+                AllConstants.ParentsConsts.MOTHER_WORKPLACE + "='" + data.getMotherWorkplace() + "', "+
+                AllConstants.ParentsConsts.FATHER_FIO + "='" + data.getFatherFio() + "', "+
+                AllConstants.ParentsConsts.FATHER_ADDRESS + "='" + data.getFatherAddress() + "', "+
+                AllConstants.ParentsConsts.FATHER_NUMBER + "='" + data.getFatherNumber() + "', "+
+                AllConstants.ParentsConsts.FATHER_WORKPLACE + "='" + data.getFatherWorkplace() + "' WHERE ("
+                + AllConstants.ParentsConsts.ID + "=" + id + ")";
         System.out.println(update);
         PreparedStatement prst = getConnection().prepareStatement(update);
         prst.executeUpdate();

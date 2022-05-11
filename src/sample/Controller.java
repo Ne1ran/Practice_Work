@@ -3,9 +3,14 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -122,13 +127,28 @@ public class Controller {
     @FXML
     private Label labelInfo;
 
-    DBHandler handler = new DBHandler();
+    @FXML
+    private Tab pdataPane;
+
+    @FXML
+    private Tab parentsDataPane;
+
+    @FXML
+    private Tab eduDataPane;
+
+    @FXML
+    private Tab dataPane;
+
+    public static DBHandler handler = new DBHandler();
     public static String IDchoosen = "";
 
     @FXML void initialize() throws SQLException, ClassNotFoundException {
         loadTables();
 
         setRowFactoriesOnTableViews();
+        panesChangeNullifyIDchoosen();
+
+
 
         addDataBtn.setOnAction(Event ->{
             try {
@@ -195,6 +215,55 @@ public class Controller {
                     throwables.printStackTrace();
                 }
             } else labelInfo.setText("Вы не выбрали строку для изменения!");
+        });
+
+        changePrivateDataBtn.setOnAction(Event ->{
+            if (!IDchoosen.equals("")){
+                try {
+                    handler.changePrivateData(IDchoosen, getPrivateDataFromTFields());
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
+                try {
+                    privateDataTable.setItems(getPrivateData());
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
+            } else labelInfo.setText("Вы не выбрали строку для изменения!");
+        });
+
+        changeEducationBtn.setOnAction(Event ->{
+            if (!IDchoosen.equals("")){
+                try {
+                    handler.changeEduData(IDchoosen, getEduDataFromTFields());
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
+                try {
+                    educationTable.setItems(getEducationData());
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
+            } else labelInfo.setText("Вы не выбрали строку для изменения!");
+        });
+
+        changeParentsDataBtn.setOnAction(Event ->{
+            if (!IDchoosen.equals("")){
+                try {
+                    handler.changeParentsInfo(IDchoosen, getParentsDataFromTFields());
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
+                try {
+                    parentsTable.setItems(getParentsData());
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
+            } else labelInfo.setText("Вы не выбрали строку для изменения!");
+        });
+
+        createReport.setOnAction(Event ->{
+            setScene("reportWindow.fxml");
         });
     }
 
@@ -406,6 +475,24 @@ public class Controller {
         });
     }
 
+    public void panesChangeNullifyIDchoosen(){
+        dataPane.setOnSelectionChanged(Event ->{
+            IDchoosen = "";
+        });
+
+        eduDataPane.setOnSelectionChanged(Event ->{
+            IDchoosen = "";
+        });
+
+        pdataPane.setOnSelectionChanged(Event ->{
+            IDchoosen = "";
+        });
+
+        parentsDataPane.setOnSelectionChanged(Event ->{
+            IDchoosen = "";
+        });
+    }
+
     private StudentData getDataFromTFields(){
         StudentData temp = new StudentData();
         temp.setFio(dataFIO.getText().trim());
@@ -447,5 +534,22 @@ public class Controller {
         temp.setFatherNumber(familyFatherNumber.getText().trim());
         temp.setFatherWorkplace(familyFatherWorkplace.getText().trim());
         return temp;
+    }
+
+    public static void setScene(String window){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Controller.class.getResource(window));
+
+        try {
+            loader.load();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+
+        Parent Root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(Root));
+        stage.setTitle("Colleage Comission");
+        stage.show();
     }
 }
